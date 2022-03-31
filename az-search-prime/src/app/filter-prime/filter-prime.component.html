@@ -1,0 +1,16 @@
+<mat-expansion-panel expanded>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Prime Eligible:&nbsp; <mat-chip color="accent" selected>{{prime}}</mat-chip>
+    </mat-panel-title>
+    <mat-panel-description>
+      Select item's Prime Eligibility.
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-button-toggle-group #primeGroup="matButtonToggleGroup" (change)="selectionChange($event)" [value]="defaultPrime">
+    <mat-button-toggle [value]="defaultPrime" color="primary">{{defaultPrime}}</mat-button-toggle>
+    <mat-button-toggle [value]="primeEligible">{{primeEligible}}</mat-button-toggle>
+    <mat-button-toggle [value]="sameDayEligible">{{sameDayEligible}}</mat-button-toggle>
+    <mat-button-toggle [value]="oneDayEligible">{{oneDayEligible}}</mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-expansion-panel>

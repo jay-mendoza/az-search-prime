@@ -1,0 +1,21 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Condition:&nbsp; <mat-chip color="accent" selected>{{condition}}</mat-chip>
+    </mat-panel-title>
+    <mat-panel-description>
+      Pick the condition of items to be searched.
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div>
+    <mat-slide-toggle color="primary" [checked]="conditonNewChecked" (toggleChange)="newToggled()">
+      {{newCondition}}
+    </mat-slide-toggle>
+    <mat-slide-toggle color="primary" [checked]="conditonUsedChecked" (toggleChange)="usedToggled()">
+      {{usedCondition}}
+    </mat-slide-toggle>
+  </div>
+  <div>
+      <span class="note">For refurbished / open-box / pre-owned, check Amazon Renewed under Savings. </span>    
+  </div>
+</mat-expansion-panel>

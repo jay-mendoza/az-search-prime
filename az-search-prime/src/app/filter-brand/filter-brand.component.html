@@ -1,0 +1,36 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Brand:&nbsp; <mat-chip color="accent" selected>{{brandStatus}}</mat-chip>
+    </mat-panel-title>
+    <mat-panel-description>
+      Search specific item brand or brands.
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div style="display:contents;">
+      <mat-form-field>
+          <mat-label>Selected Brands</mat-label>
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let brand of brands" [selectable]="true" [removable]="true" (removed)="remove(brand)">
+              {{brand}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="Type or pick a brand." #brandInput [formControl]="brandControl" [matAutocomplete]="auto"
+              [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-optgroup label="Amazon Brands">
+              <mat-option *ngFor="let option of filteredAmazonBrands | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-optgroup>
+            <mat-optgroup label="Dev's Choice">
+              <mat-option *ngFor="let option of filteredCommonBrands | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-optgroup>
+          </mat-autocomplete>
+        </mat-form-field>
+  </div>  
+</mat-expansion-panel>

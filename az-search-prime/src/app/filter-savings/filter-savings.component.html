@@ -1,0 +1,15 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Savings:&nbsp; <mat-chip color="accent" selected>{{savings}}</mat-chip>
+    </mat-panel-title>
+    <mat-panel-description>
+      Search Prime Pantry or Amazon Renewed categories for savings.
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-button-toggle-group #primeGroup="matButtonToggleGroup" (change)="selectionChange($event)" [value]="defaultSavings">
+    <mat-button-toggle [value]="defaultSavings" color="primary">{{defaultSavings}}</mat-button-toggle>
+    <mat-button-toggle [value]="pantry">{{pantry}}</mat-button-toggle>
+    <mat-button-toggle [value]="renewed">{{renewed}}</mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-expansion-panel>

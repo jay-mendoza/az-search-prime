@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+@desktop:   ~"only screen and (min-width: 960px)";
+@tablet:    ~"only screen and (min-width: 640px) and (max-width: 959px)";
+@mobile:    ~"only screen and (max-width: 639px)";
+
+mat-chip {
+    text-align: center;
+}
+
+mat-panel-title, mat-panel-description {
+    align-items: center;
+}
+
+.mat-expansion-panel-body > * {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+}
+
+@media @mobile {
+
+    mat-panel-title {
+        font-size: 12px;
+    }
+
+    mat-panel-description {
+        font-size: 11px;
+    }
+
+    mat-chip {
+        font-size: 12px !important;
+    }
+
+    mat-button-toggle-group {
+        flex-direction: column !important;
+    }
+
+}
+
+// @media @tablet { }

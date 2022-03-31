@@ -1,0 +1,19 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      User Rating:&nbsp; <mat-chip color="accent" selected>{{rating}}</mat-chip>
+    </mat-panel-title>
+    <mat-panel-description>
+      Filter by average user rating, from 0+, to 4+ stars.
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div>
+      <mat-slider [displayWith]="formatLabel" color="primary" [max]="4" [min]="0" [step]="1" [thumbLabel]="true" [tickInterval]="1" [(ngModel)]="value" (change)="valueChanged($event)">
+        </mat-slider>
+        <br>
+        <mat-icon *ngFor="let dummy of ' '.repeat(currentValue).split(''), let x = index">star</mat-icon>
+        <mat-icon *ngIf="currentValue > 0">add</mat-icon>
+        <mat-icon *ngIf="currentValue == 0">touch_app</mat-icon>
+        <span *ngIf="currentValue == 0">Please drag the slider</span>
+  </div>
+</mat-expansion-panel>

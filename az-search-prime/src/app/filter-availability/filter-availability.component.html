@@ -1,0 +1,15 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Availability:&nbsp; <mat-chip color="accent" selected>{{availability}}</mat-chip>
+    </mat-panel-title>
+    <mat-panel-description>
+      Show out of stock items.
+    </mat-panel-description>    
+  </mat-expansion-panel-header>
+  <div>
+      <mat-checkbox color="primary" [checked]="isChecked" (change)="checkChanged($event)">
+          Include Out Of Stock Items.
+        </mat-checkbox>
+  </div>  
+</mat-expansion-panel>

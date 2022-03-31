@@ -1,0 +1,16 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Eligibility:&nbsp; <mat-chip color="accent" selected>{{eligible}}</mat-chip>
+    </mat-panel-title>
+    <mat-panel-description>
+      Select item's miscellaneous eligibility.
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-button-toggle-group #primeGroup="matButtonToggleGroup" (change)="selectionChange($event)" [value]="defaultEligible">
+    <mat-button-toggle [value]="defaultEligible" color="primary">{{defaultEligible}}</mat-button-toggle>
+    <mat-button-toggle [value]="wardrobe">{{wardrobe}}</mat-button-toggle>
+    <mat-button-toggle [value]="fresh">{{fresh}}</mat-button-toggle>
+    <mat-button-toggle [value]="international">{{international}}</mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-expansion-panel>

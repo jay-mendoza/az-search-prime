@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<section></section>
+
+<article>
+  <mat-form-field [floatLabel]="auto" [hideRequiredMarker]="false" (keyup.enter)="doSearch()">
+    <mat-label>Keyword</mat-label>
+    <input matInput placeholder="Type the item to search" (input)="onKeywordChange($event.target.value)">
+  </mat-form-field>
+
+  <mat-accordion [hidden]="!filtersEnabled">
+    <app-filter-prime (filterChanged)="primeChanged($event)"></app-filter-prime>
+    <app-filter-eligible (filterChanged)="eligibleChanged($event)"></app-filter-eligible>
+    <app-filter-savings (filterChanged)="savingsChanged($event)"></app-filter-savings>
+    <app-filter-brand (filterChanged)="brandChanged($event)"></app-filter-brand>
+    <app-filter-price (filterChanged)="priceChanged($event)"></app-filter-price>
+    <app-filter-rating (filterChanged)="ratingChanged($event)"></app-filter-rating>
+    <app-filter-condition (filterChanged)="conditionChanged($event)"></app-filter-condition>
+    <app-filter-availability (filterChanged)="availabilityChanged($event)"></app-filter-availability>
+  </mat-accordion>
+
+  <button mat-raised-button color="primary" (click)="doSearch()">
+    <mat-icon>search</mat-icon>Search{{prime ? ' prime!' : ''}}
+  </button>
+
+  <input type="text" readonly value="{{url}}"/>
+
+
+
+</article>
+
+
+<router-outlet></router-outlet>
